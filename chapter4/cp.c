@@ -2,15 +2,11 @@
 #include <fcntl.h>
 #include "tlpi_hdr.h"
 
-#ifndef BUF_SIZE
-#define BUF_SIZE 1024
-#endif
-
 int main(int argc, char *argv[]) {
 
     int inputFd, outputFd;
 
-    if (argc != 3 || strcmp(argv[1], "--help") == 0) {
+    if (argc != 3) {
         usageErr("%s old-file new-file\n", argv[0]);
     }
 
@@ -25,17 +21,33 @@ int main(int argc, char *argv[]) {
         errExit("opening file %s", argv[2]);
     }
 
-    char buf[BUF_SIZE];
+    int hole = 0;
+    struct stat st;
+    char zero[1024];
+
+    if (fstat(inputFd, &st) == -1) {
+        errExit("fstat %s", argv[1]);
+    }
+
+    if (S_ISREG(st.st_mode) && st.st_size / 512 > st.st_blocks) {
+        hole = 1;
+        memset(zero, 0, 1024);
+    }
+
+    char buf[1024];
     ssize_t count;
 
-    while ((count = read(inputFd, buf, BUF_SIZE)) > 0) {
-        if (write(outputFd, buf, count) != count) {
+    while ((count = read(inputFd, buf, 1024)) > 0) {
+        if (hole && !memcmp(buf, zero, count) 
+                && lseek(outputFd, count, SEEK_CUR) == -1) {
+            errExit("lseek %s", argv[2]);
+        } else if (write(outputFd, buf, count) != count) {
             fatal("couldn't write whole buffer");
         }
     }
 
     if (count == -1) {
-        errExit("read");
+        errExit("read %s", argv[1]);
     }
 
     if (close(inputFd) == -1) {
