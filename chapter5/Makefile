@@ -1,6 +1,6 @@
 include ../Makefile.inc
 
-EXE=t_readv append atomic_append
+EXE=t_readv append atomic_append dup writev readv
 
 all: $(EXE)
 
