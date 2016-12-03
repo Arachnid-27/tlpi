@@ -7,7 +7,6 @@
 #include <stdio.h>
 
 int writev2(int fd, const struct iovec *iov, int iovcnt) {
-
     ssize_t total = 0;
 
     for (int i = 0; i < iovcnt; ++i) {
@@ -24,11 +23,9 @@ int writev2(int fd, const struct iovec *iov, int iovcnt) {
     }
 
     return write(fd, buf, total);
-
 }
 
 int main() {
-
     struct iovec iov[3];
     int x = 100;
     float f = 50.0;
@@ -54,6 +51,5 @@ int main() {
 
     printf("Exercise5-7 writev succeed!\n");
 
-    return 0;
-
+    exit(EXIT_SUCCESS);
 }

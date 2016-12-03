@@ -25,5 +25,5 @@ int main() {
     assert(!setenv2("TEST", "two", 1));
     assert(!strcmp(getenv("TEST"), "two"));
     printf("Exercise6-3 setenv succeed!\n");
-    return 0;
+    exit(EXIT_SUCCESS);
 }

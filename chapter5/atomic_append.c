@@ -2,7 +2,6 @@
 #include "tlpi_hdr.h"
 
 int main(int argc, char* argv[]) {
-
     if (argc < 3) {
         usageErr("%s filename num-bytes [x]", argv[0]);
     }
@@ -34,5 +33,4 @@ int main(int argc, char* argv[]) {
     }
 
     exit(EXIT_SUCCESS);
-
 }

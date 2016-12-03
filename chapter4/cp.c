@@ -3,7 +3,6 @@
 #include "tlpi_hdr.h"
 
 int main(int argc, char *argv[]) {
-
     int inputFd, outputFd;
 
     if (argc != 3) {
@@ -59,5 +58,4 @@ int main(int argc, char *argv[]) {
     }
 
     exit(EXIT_SUCCESS);
-
 }

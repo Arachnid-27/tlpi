@@ -7,7 +7,6 @@
 #include <stdio.h>
 
 int readv2(int fd, const struct iovec *iov, int iovcnt) {
-
     ssize_t total = 0;
 
     for (int i = 0; i < iovcnt; ++i) {
@@ -28,11 +27,9 @@ int readv2(int fd, const struct iovec *iov, int iovcnt) {
     }
 
     return total;
-
 }
 
 int main() {
-
     struct iovec iov[3];
     int x;
     float f;
@@ -61,6 +58,5 @@ int main() {
 
     printf("Exercise5-7 readv succeed!\n");
 
-    return 0;
-
+    exit(EXIT_SUCCESS);
 }

@@ -21,5 +21,5 @@ int main() {
     assert(!unsetenv2("TEST"));
     assert(getenv("TEST") == NULL);
     printf("Exercise6-3 unsetenv succeed!\n");
-    return 0;
+    exit(EXIT_SUCCESS);
 }

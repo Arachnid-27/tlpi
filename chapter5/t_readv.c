@@ -4,7 +4,6 @@
 #include "tlpi_hdr.h"
 
 int main(int argc, char* argv[]) {
-
     if (argc != 2) {
         usageErr("%s file\n", argv[0]);
     }
@@ -46,5 +45,4 @@ int main(int argc, char* argv[]) {
     printf("total bytes requested: %ld; bytes read: %ld\n", (long) total, (long) count);
 
     exit(EXIT_SUCCESS);
-
 }

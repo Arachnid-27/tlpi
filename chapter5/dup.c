@@ -1,17 +1,15 @@
 #include <unistd.h>
+#include <stdlib.h>
 #include <fcntl.h>
 #include <errno.h>
 #include <assert.h>
 #include <stdio.h>
 
 int dup(int oldfd) {
-
     return fcntl(oldfd, F_DUPFD);
-
 }
 
 int dup2(int oldfd, int newfd) {
-
     if (fcntl(oldfd, F_GETFL) == -1) {
         errno = EBADF;
         return -1;
@@ -26,11 +24,9 @@ int dup2(int oldfd, int newfd) {
     }
 
     return newfd;
-
 }
 
 int main() {
-
     int fd = open("test", O_CREAT | O_RDONLY, S_IRUSR | S_IWUSR);
 
     lseek(fd, 1000, SEEK_SET);
@@ -65,6 +61,5 @@ int main() {
 
     printf("Exercise5-4 & Exercise5-5 succeed!\n");
 
-    return 0;
-
+    exit(EXIT_SUCCESS);
 }

@@ -2,7 +2,6 @@
 #include "tlpi_hdr.h"
 
 int main(int argc, char* argv[]) {
-
     if (argc != 2) {
         usageErr("%s file\n", argv[0]);
     }
@@ -24,5 +23,4 @@ int main(int argc, char* argv[]) {
     }
 
     exit(EXIT_SUCCESS);
-
 }
