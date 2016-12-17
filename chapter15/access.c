@@ -37,8 +37,6 @@ int access2(const char* pathname, int mode) {
     return 0;
 }
 
-
-
 int main(int argc, char* argv[]) {
     int flags = O_CREAT | O_RDONLY;
 
