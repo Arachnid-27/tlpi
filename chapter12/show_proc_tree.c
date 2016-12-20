@@ -13,8 +13,6 @@ struct proc {
     struct proc *next;
 };
 
-struct proc *list[MAX_PROC];
-
 void split(char *key, char *value, const char *src) {
     while (*src != ':') {
         *key = *src;
@@ -78,7 +76,6 @@ void dfs(struct proc *p, int depth) {
 
 int main(int argc, char *argv[]) {
     struct proc *list[MAX_PROC];
-    memset(list, 0, MAX_PROC * sizeof(struct proc *));
     DIR* dir = opendir("/proc");
     FILE* fp;
     char buf[1024];
