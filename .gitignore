@@ -1,3 +1,5 @@
 chapter*/*
 !chapter*/*.*
 !chapter*/Makefile
+
+*.swp
