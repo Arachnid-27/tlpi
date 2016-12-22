@@ -1,6 +1,6 @@
 include ../Makefile.inc
 
-EXE=sig_ign
+EXE=sig_ign sigaction_mask
 
 all: $(EXE)
 
