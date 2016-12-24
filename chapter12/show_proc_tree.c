@@ -83,7 +83,7 @@ int main(int argc, char *argv[]) {
     struct dirent *dirp;
     int flag;
 
-    strcpy(create_proc(list, 0)->name, "init");
+    strcpy(create_proc(list, 0)->name, "");
 
     while ((dirp = readdir(dir)) != NULL) {
         if (dirp->d_type == DT_DIR && isdigit(dirp->d_name[0])) {
