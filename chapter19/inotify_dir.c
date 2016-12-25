@@ -13,11 +13,10 @@ int wdNum;
 
 static void getFullPath(char *dst, int wd, const char *name) {
     char *parent = inotifyWd[wd];
-    ssize_t len = strlen(parent);
 
     strcpy(dst, parent);
-    dst[len] = '/';
-    strcpy(dst + len + 1, name);
+    strcat(dst, "/");
+    strcat(dst, name);
 }
 
 static int getWdByName(const char *name) {

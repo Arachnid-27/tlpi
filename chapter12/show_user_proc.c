@@ -38,11 +38,10 @@ int is_equal(uid_t uid, const char *str) {
 }
 
 void init_path(char *dst, const char *dir) {
-    int len = strlen(dir);
     strcpy(dst, "/proc/");
-    strcpy(dst + 6, dir);
-    *(dst + 6 + len) = '/'; 
-    strcpy(dst + 7 + len, "status");
+    strcat(dst, dir);
+    strcat(dst, "/");
+    strcat(dst, "status");
 }
 
 int main(int argc, char *argv[]) {
