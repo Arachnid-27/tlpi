@@ -1,6 +1,5 @@
 #include <sys/resource.h>
 #include <sys/wait.h>
-#include <sys/times.h>
 #include "tlpi_hdr.h"
 
 int main(int argc, char *argv[]) {
