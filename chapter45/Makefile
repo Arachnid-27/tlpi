@@ -1,6 +1,6 @@
 include ../Makefile.inc
 
-EXE=double_pipe popen_pclose
+EXE=ftok
 
 all: $(EXE)
 
