@@ -105,12 +105,12 @@ int main(int argc, char *argv[]) {
 
     while (fgets(buf, BUF_LEN, fp1) != NULL) {
         if (fputs(buf, fp2) == -1) {
-            exit(1);
+            exit(EXIT_FAILURE);
         }
     }
 
     pclose(fp1);
     pclose(fp2);
 
-    exit(0);
+    exit(EXIT_SUCCESS);
 }
