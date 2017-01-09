@@ -18,6 +18,7 @@ static void child_handler(int sig) {
 }
 
 static void exit_handler(int sig) {
+    syslog(LOG_INFO, "kill by SIGTERM or SIGINT");
     clear();
     signal(sig, SIG_DFL);
     raise(sig);
